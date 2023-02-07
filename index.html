@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="scripts/alpine.js" defer></script>
+    <title>Ukom 2023</title>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-djp-blue-dark via-djp-blue to-djp-blue-light">
+    <div class="container mx-auto p-4 flex justify-between">
+        <div class="text-white font-bold text-2xl">STUDIA</div>
+        <a href="https://studia/" class="bg-djp-yellow text-center px-4 py-2 rounded-lg text-djp-blue font-semibold hover:shadow-lg">Login</a>
+    </div>
+    <div class="container mx-auto p-4">
+        <h1 class="p-4 opacity-60 text-center font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-djp-blue-dark to-djp-blue-dark via-white">
+            UJI KOMPETENSI 2023
+        </h1>
+        <h2 class="text-center p-4 pb-16 text-slate-300 text-xl font-semibold italic leading-10">
+            Video berikut dapat Anda pelajari sebagai bahan pendukung <br> pelaksanaan 
+            <span class="before:block before:absolute before:-inset-1 before:-skew-y-2 before:bg-[#FFC91B] relative inline-block">
+                <span class="relative text-[#212C5F] font-bold italic">Uji Kompetensi</span>
+            </span> 
+            Teknis Kenaikan Peringkat Jabatan Tahun 2023
+        </h2>
+        <div class="grid grid-cols-2 xl:grid-cols-3 gap-2 pb-16" id="video-grid">
+        </div>
+    </div>  
+</body>
+<script>
+    const videoGrid = document.getElementById('video-grid')
+    let content = ""
+    const data = [    
+        {
+            image: 'image/AR.PNG',
+            title: 'Ketentuan Umum dan Tatacara Perpajakan',
+            presenter: 'oleh Si Pulan',
+            tag: 'perpajakan',
+            link: 'https://studia/s/'
+        },  
+        {
+            image: 'image/BEA METERAI.PNG',
+            title: 'Bea Meterai',
+            presenter: 'Si Pulan',
+            tag: 'perpajakan',
+            link: 'https://studia/s/',
+        },
+        {
+            image: 'image/KEPEGAWAIAN.PNG',
+            title: 'Pendukung',
+            presenter: 'Si Pulan',
+            tag: 'non perpajakan',
+            link: 'https://studia/s/',
+        },
+        {
+            image: 'image/KEUANGAN.PNG',
+            title: 'Keuangan',
+            presenter: 'Si Pulan',
+            link: 'https://studia/s/',
+            tag: 'non perpajakan'
+        },
+        {
+            image: 'image/KODE ETIK.PNG',
+            title: 'Kode Etik dan Kode Perilaku',
+            presenter: 'Si Pulan',
+            link: 'https://studia/s/',
+            tag: 'non perpajakan'
+        },
+        {
+            image: 'image/KUP.PNG',
+            title: 'Ketentuan Umum dan Tata Cara Perpajakan',
+            presenter: 'Si Pulan',
+            link: 'https://studia/s/',
+            tag: 'perpajakan'
+        },
+        {
+            image: 'image/ORGANISASI.PNG',
+            title: 'Organisasi',
+            presenter: 'Si Pulan',
+            link: 'https://studia/s/',
+            tag: 'non perpajakan'
+        },
+        {
+            image: 'image/PBB.PNG',
+            title: 'Pajak Bumi dan Bangunan',
+            presenter: 'Si Pulan',
+            link: 'https://studia/s/',
+            tag: 'non perpajakan'
+        },
+        {
+            image: 'image/PK.PNG',
+            title: 'Penelaah Keberatan',
+            presenter: '',
+            link: 'https://studia/s/',
+            tag: 'perpajakan'
+        },
+        {
+            image: 'image/PPh.PNG',
+            title: 'Pajak Penghasilan',
+            presenter: '',
+            link: 'https://studia/s/',
+            tag: 'perpajakan'
+        },
+        {
+            image: 'image/PPN.PNG',
+            title: 'Pajak Pertambahan Nilai',
+            presenter: '',
+            link: 'https://studia/s/',
+            tag: 'perpajakan'
+        },
+        {
+            image: 'image/TIK.PNG',
+            title: 'Teknologi Informasi dan Komunikasi',
+            presenter: '',
+            link: 'https://studia/s/',
+            tag: 'non perpajakan'
+        },
+        {
+            image: 'image/TND.PNG',
+            title: 'Tata Naskah Dinas',
+            presenter: '',
+            link: 'https://studia/s/',
+            tag: 'non perpajakan'
+        },
+    ]
+
+    data.map(e => {
+        content += `<a href="${e.link}" class="relative bg-slate-50 rounded-lg overflow-hidden group-hover:shadow-md group aspect-video">
+                <img src="${e.image}" alt="" class="group-hover:scale-[130%] transition-all duration-500 ease-in-out saturate-50 group-hover:blur-sm">
+                <div class="absolute top-0 left-0 bottom-0 right-0 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24 absolute text-white hidden group-hover:block">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                        </svg>  
+                </div>                    
+                <span class="absolute ${e.tag === 'non perpajakan' ? 'bg-djp-yellow text-djp-blue-dark' : 'bg-emerald-600 text-white'} px-2 py-1 rounded-lg font-semibold text-sm top-2 right-2">${e.tag}</span>
+                <div class="absolute left-0 bottom-0 right-0 pt-8 pb-4 px-4 text-white bg-gradient-to-b from-transparent via-slate-500 to-slate-900 hidden group-hover:block">
+                    <div class="font-semibold">${e.title}</div>
+                    <div class="text-sm text-gray-300">${e.presenter}</div>
+                </div>
+            </a>`
+    })
+
+    videoGrid.innerHTML = content
+
+</script>
+</html>
